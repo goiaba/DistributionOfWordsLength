@@ -1,3 +1,4 @@
+package edu.luc.cs.comp372
 package common
 
 /**
@@ -9,8 +10,11 @@ trait IO {
    * @return a string containing all the input lines concatenated
    *          and separated by a blank space
    */
-  def input = scala.io.Source.stdin.getLines.mkString(" ")
-  
+  def input = {
+    val lines = scala.io.Source.stdin.getLines
+    lines.map(_.replaceAll("\\s+", " ").trim).filter(_.nonEmpty)
+  }
+
   /**
    * Print the distribution of words following the requirements:
    *  - Ascending order of lengths;
