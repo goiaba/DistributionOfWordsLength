@@ -8,9 +8,8 @@ object Fixtures {
 
   val empty = Map.empty[Int, Int]
 
-  val someWords = Map(
-          1 -> 0, 2 -> 0,
-          3 -> 0, 4 -> 0,
-          5 -> 3, 6 -> 1)
+  val someWords = Map(5 -> 3, 6 -> 1)
+
+  val widthOverflow = Map(5 -> 250, 6 -> 150, 10 -> 50)
 
 }
