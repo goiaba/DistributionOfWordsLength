@@ -1,3 +1,5 @@
+- Both extra credit tasks were attempted (right align and scale)
+
 #Usage
 
 To run the tests:
