@@ -10,7 +10,6 @@ import common.WordLengthDistribution
 object Main extends common.Main with Mutable
 
 trait Mutable extends WordLengthDistribution {
-
   import scala.collection.mutable.{HashMap => mutableHashMap}
   import scala.collection.immutable.{HashMap => immutableHashMap}
   /**
@@ -23,19 +22,19 @@ trait Mutable extends WordLengthDistribution {
    *  is case sensitive so words are considered to be equal only
    *  if they are typed exactly in the same way
    *
-   * @param words an iterator of words to be included in the
+   * @param linesOfWords an iterator of words to be included in the
    *               distribution
    * @return a map containing the word length as key and the number
    *          of times words with that length appears as value
    */
-  override def compute(words: Iterator[String]) = {
+  override def compute(linesOfWords: Iterator[String]) = {
     val distributionMap = new mutableHashMap[Int, Int]
-    val wArray = words.toSeq.flatMap(_.split("\\s"))
-    for (word <- wArray) {
-      val currentDistribution = distributionMap getOrElse(word.length, 0)
-      distributionMap update(word.length, currentDistribution + 1)
+    val words = linesOfWords.map(_.trim).filter(_.nonEmpty)
+      .toSeq.flatMap(_.split("\\s+"))
+    for (word <- words) {
+      val currentNrOfRepetition = distributionMap getOrElse(word.length, 0)
+      distributionMap update(word.length, currentNrOfRepetition + 1)
     }
     immutableHashMap() ++ distributionMap
   }
-
 }

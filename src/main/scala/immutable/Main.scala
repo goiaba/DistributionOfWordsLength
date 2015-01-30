@@ -14,13 +14,14 @@ trait Immutable extends WordLengthDistribution {
    * Iterate over every word contained in the words Iterator and
    *  creates the map of distributions
    *
-   * @param words an iterator of words to be included in the
+   * @param linesOfWords an iterator of words to be included in the
    *               distribution
    * @return a map containing the word length as key and the number
    *          of times words with that length appears as value
    */
-  def compute(words: Iterator[String]) = {
-    val wArray = words.toSeq.flatMap(_.split("\\s"))
-    wArray.groupBy(_.length).mapValues(_.size)
+  def compute(linesOfWords: Iterator[String]) = {
+    linesOfWords.map(_.trim).filter(_.nonEmpty)
+      .toSeq.flatMap(_.split("\\s+"))
+      .groupBy(_.length).mapValues(_.size)
   }
 }

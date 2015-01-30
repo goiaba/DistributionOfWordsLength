@@ -15,10 +15,10 @@ trait WordLengthDistribution {
    *  is case sensitive so words are considered to be equal only
    *  if they are typed exactly in the same way
    *
-   * @param words an iterator of words to be included in the
+   * @param linesOfWords an iterator of words to be included in the
    *               distribution
    * @return a map containing the word length as key and the number
    *          of times words with that length appears as value
    */
-  def compute(words: Iterator[String]): Map[Int, Int]
+  def compute(linesOfWords: Iterator[String]): Map[Int, Int]
 }
