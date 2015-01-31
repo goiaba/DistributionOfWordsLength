@@ -10,6 +10,8 @@ import org.scalatest.WordSpec
  */
 class PrintSpec extends WordSpec with IO {
 
+  val EOL = System.lineSeparator
+
   def fixture() = new {
     val stringWriter = new StringWriter
     implicit val strout = new BufferedWriter(stringWriter, IO_BUF_SIZE)
@@ -58,7 +60,7 @@ class PrintSpec extends WordSpec with IO {
              | 7   0
              | 8   0
              | 9   0
-             |10  50 """.stripMargin + "*" * scale(50) + "\n")
+             |10  50 """.stripMargin + "*" * scale(50) + EOL)
       }
     }
 
