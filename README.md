@@ -2,13 +2,13 @@ Description: Read an arbitrary number of words from the standard input and keep 
 
 The goal is an understanding of:
 
- imperative and pure functional paradigms
- higher-order functions
- immutable data structures
- separation of processing and I/O concerns
- test-driven development (TDD) in Scala and Intellij IDEA
+- imperative and pure functional paradigms
+- higher-order functions
+- immutable data structures
+- separation of processing and I/O concerns
+- test-driven development (TDD) in Scala and Intellij IDEA
 
-- Both extra credit tasks were attempted (right align and scale)
+* Both extra credit tasks were attempted (right align and scale)
 
 #Usage
 
